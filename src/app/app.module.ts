@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'; //Importamos el modulo HttpClientModule para hacer peticiones HTTP.
 
@@ -16,6 +16,15 @@ import { FormularioValidadoComponent } from './components/forms/formulario-valid
 
 //Modulos Angular Material
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { EjemploPipesComponent } from './components/ejemplo-pipes/ejemplo-pipes.component';
+import { MultiplicaPipe } from './pipes/multiplica.pipe';
+import { CalcularPuntuacionPipe } from './pipes/calcular-puntuacion.pipe';
+
+// Locale para PIPES
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+registerLocaleData(localeEs); // Registramos el LOCALE_ID de 'es' / si no se registra aparecera un error y pantalla en blanco.
+// Ahora las fechas ya apareceran en espanol por ejemplo y no en ingles.
 
 @NgModule({
   declarations: [
@@ -27,6 +36,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormularioAnidadoComponent,
     FormularioArrayComponent,
     FormularioValidadoComponent,
+    EjemploPipesComponent,
+    MultiplicaPipe,
+    CalcularPuntuacionPipe,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +54,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     // Importamos los modulos de Angular Material que usamos en el formulario.
     MatFormFieldModule,
   ],
-  providers: [],
+  providers: [
+    // Registramos el locale de ES para que los pipes sean en Espanol.
+    {
+      provide: LOCALE_ID,
+      useValue: 'es',
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

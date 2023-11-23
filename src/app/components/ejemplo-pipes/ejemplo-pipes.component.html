@@ -1,0 +1,76 @@
+<h1>Ejemplos PIPES de Angular</h1>
+
+<!-- FECHAS -->
+
+<h2>Pipes para fechas</h2>
+<p>Mi cumpleanos sin PIPE es : {{ dob }}.</p>
+<p>Mi cumpleanos con PIPE DATE BASICO es {{ dob | date }}.</p>
+<p>
+  Mi cumpleanos con PIPE DATE "dd/MM/yyyy" es {{ dob | date : "dd/MM/yyyy" }}.
+</p>
+
+<p>Mi cumpleanos con PIPE DATE SHORT es {{ dob | date : "shortDate" }}.</p>
+
+<p>Mi cumpleanos con PIPE DATE FULL es {{ dob | date : "fullDate" }}.</p>
+
+<p>Mi cumpleanos con PIPE DATE SHORT/FULL es {{ dob | date : dateFormat }}.</p>
+
+<!-- Combinacion de pipes -->
+
+<h2>Combinacion de Pipes</h2>
+<p>
+  Mi cumpleanos con PIPE DATE SHORT/FULL MAYUSCULAS es
+  {{ dob | date : dateFormat | uppercase }}.
+</p>
+
+<p>
+  Mi cumpleanos con PIPE DATE SHORT/FULL minusculas es
+  {{ dob | date : dateFormat | lowercase }}.
+</p>
+
+<button (click)="cambiarFormato()">
+  Cambiar formato a {{ cambio ? "Short" : "Full" }}
+</button>
+
+<!-- MAYUSCULAS Y MINUSCULAS -->
+<h2>Mayusculas y minusculas</h2>
+<p>Bienvenido, {{ nombre | uppercase }}</p>
+<p>Nombre de usuario, @{{ nombre | lowercase }}</p>
+
+<!-- Pipe Decimales -->
+<h2>Pipes de decimales</h2>
+<p>PI (3 decimales) {{ numero_PI | number : ".3" }}</p>
+<p>PI (5 decimales) {{ numero_PI | number : ".5-5" }}</p>
+<p>PI (2 enteros y 8 decimales) {{ numero_PI | number : "2.8-8" }}</p>
+
+<!-- Pipe de monedas /currency -->
+<h2>Pipe de monedas (Currency)</h2>
+<p>Precio del Carrito: {{ precioCarrito | currency : "EUR" }}</p>
+<p></p>
+<p>Precio del Carrito: {{ precioCarrito | currency : "USD" : true }}</p>
+<p>
+  Precio del Carrito: {{ precioCarrito | currency : "USD" : true : ".3-3" }}
+</p>
+
+<!-- JSON PIPE -->
+
+<h2>JSON pipe</h2>
+<p>{{ persona | json }}</p>
+
+<!-- Pipe Porcentaje -->
+<h2>Pipe porcentaje</h2>
+<p>Porcentaje de votos obtenido: {{ cantidad | percent : "2.2-2" }}</p>
+
+<!-- Pipe de slice -->
+<h2>Pipe de Slice</h2>
+<p>Texto demasiado largo : {{ textoLargo | slice : 0 : 10 }}...</p>
+
+<!-- PIPE personalizado MULTIPLICA -->
+
+<h2>Pipe personalizado MULTIPLICA</h2>
+<p>Resultado: {{ 2 | multiplica : 10 }} puntos</p>
+
+<!-- PIPE personalizado (Calcular puntuacion) -->
+<h2>Pipe personalizado (Calcular puntuacion)</h2>
+<p>{{ jugador1 | calcularPuntuacion }}</p>
+<p>{{ jugador2 | calcularPuntuacion }}</p>
