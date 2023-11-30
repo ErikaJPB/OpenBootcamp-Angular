@@ -16,6 +16,7 @@ import { FormularioValidadoComponent } from './components/forms/formulario-valid
 
 //Modulos Angular Material
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 import { EjemploPipesComponent } from './components/ejemplo-pipes/ejemplo-pipes.component';
 import { MultiplicaPipe } from './pipes/multiplica.pipe';
 import { CalcularPuntuacionPipe } from './pipes/calcular-puntuacion.pipe';
@@ -23,6 +24,7 @@ import { CalcularPuntuacionPipe } from './pipes/calcular-puntuacion.pipe';
 // Locale para PIPES
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+import { EjemploAnimacionComponent } from './components/ejemplo-animacion/ejemplo-animacion.component';
 registerLocaleData(localeEs); // Registramos el LOCALE_ID de 'es' / si no se registra aparecera un error y pantalla en blanco.
 // Ahora las fechas ya apareceran en espanol por ejemplo y no en ingles.
 
@@ -39,6 +41,7 @@ registerLocaleData(localeEs); // Registramos el LOCALE_ID de 'es' / si no se reg
     EjemploPipesComponent,
     MultiplicaPipe,
     CalcularPuntuacionPipe,
+    EjemploAnimacionComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ registerLocaleData(localeEs); // Registramos el LOCALE_ID de 'es' / si no se reg
 
     // Importamos los modulos de Angular Material que usamos en el formulario.
     MatFormFieldModule,
+    MatButtonModule,
   ],
   providers: [
     // Registramos el locale de ES para que los pipes sean en Espanol.
